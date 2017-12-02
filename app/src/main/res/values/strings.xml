@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">DemoApp</string>
+
+    <string name="take_from_camera">Take From Camera</string>
+    <string name="custom_gallery">Custom Gallery</string>
+
+
 </resources>

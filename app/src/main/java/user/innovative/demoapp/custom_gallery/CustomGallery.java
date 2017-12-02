@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -27,6 +26,8 @@ public class CustomGallery extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom_gallery);
 
+        rv_gallery_images = (RecyclerView) findViewById(R.id.rv_gallery_images);
+
         ArrayList<String> imageUrls = loadPhotosFromNativeGallery();
         galleryAdapter = new GalleryAdapter(imageUrls, new GalleryAdapter.OnImageSelectListener() {
             @Override
@@ -37,7 +38,7 @@ public class CustomGallery extends AppCompatActivity {
             }
         }, getApplicationContext());
 
-        rv_gallery_images.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        rv_gallery_images.setLayoutManager(new GridLayoutManager(getApplicationContext(), 3));
         rv_gallery_images.setAdapter(galleryAdapter);
 
     }
